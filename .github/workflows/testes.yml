@@ -15,4 +15,4 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Run tests
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test OA_Email.Testes --no-restore --verbosity normal
