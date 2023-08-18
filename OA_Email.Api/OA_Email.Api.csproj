@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OA_Email.Domain\OA_Email.Domain.csproj" />
+    <ProjectReference Include="..\OA_Email.Repository\OA_Email.Repository.csproj" />
   </ItemGroup>
 
 </Project>
