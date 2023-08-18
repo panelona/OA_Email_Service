@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using OA_Email.Domain.Interfaces;
 using OA_Email.Repository.Context;
+using OA_Email.Repository.Repositories;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,12 @@ builder.Services.AddSwaggerGen();
 var connectionString = Environment.GetEnvironmentVariable("OA_EMAIL_CONNSTRING");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+#endregion
+
+#region Injection
+
+builder.Services.AddScoped<ICodigoEmailRepository, CodigoEmailRepository>();
 
 #endregion
 
