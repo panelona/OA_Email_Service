@@ -12,9 +12,9 @@ namespace OA_Email.Repository.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly OA_EmailContext _context;
+        private readonly AppDbContext _context;
 
-        public BaseRepository(OA_EmailContext context)
+        public BaseRepository(AppDbContext context)
         {
             _context = context;
         }

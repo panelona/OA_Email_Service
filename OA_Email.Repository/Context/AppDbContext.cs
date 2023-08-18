@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace OA_Email.Repository.Context
 {
-    public class OA_EmailContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public OA_EmailContext(DbContextOptions<OA_EmailContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     }
 }
