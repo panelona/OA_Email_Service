@@ -4,13 +4,12 @@ namespace OA_Email.Domain.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {
-        Task<T> FindAsync(int id);
-        Task<T> FindAsync(Expression<Func<T, bool>> expression);
-        Task<T> FindAsNoTrackingAsync(Expression<Func<T, bool>> expression);
-        Task<IEnumerable<T>> ListAsync();
-        Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> expression);
-        Task AddAsync(T item);
-        Task RemoveAsync(T item);
-        Task EditAsync(T item);
+        Task<T> BuscarEntidadePorId(Guid id);
+        Task<T> BuscarEntidade(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> BuscarEntidades();
+        Task<IEnumerable<T>> BuscarEntidades(Expression<Func<T, bool>> expression);
+        Task CriarEntidade(T item);
+        Task DeletarEntidade(T item);
+        Task EditarEntidade(T item);
     }
 }

@@ -18,45 +18,40 @@ namespace OA_Email.Repository.Repositories
         {
             _context = context;
         }
-        public async Task<T> FindAsync(int id)
+        public async Task<T> BuscarEntidadePorId(Guid id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> FindAsync(Expression<Func<T, bool>> expression)
+        public async Task<T> BuscarEntidade(Expression<Func<T, bool>> expression)
         {
             return await _context.Set<T>().FirstOrDefaultAsync(expression);
         }
 
-        public async Task<T> FindAsNoTrackingAsync(Expression<Func<T, bool>> expression)
-        {
-            return await _context.Set<T>().AsNoTracking().FirstOrDefaultAsync(expression);
-        }
 
-
-        public async Task<IEnumerable<T>> ListAsync()
+        public async Task<IEnumerable<T>> BuscarEntidades()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> BuscarEntidades(Expression<Func<T, bool>> expression)
         {
             return await _context.Set<T>().Where(expression).ToListAsync();
         }
 
-        public async Task AddAsync(T item)
+        public async Task CriarEntidade(T item)
         {
             await _context.Set<T>().AddAsync(item);
             await _context.SaveChangesAsync();
         }
 
-        public async Task RemoveAsync(T item)
+        public async Task DeletarEntidade(T item)
         {
             _context.Set<T>().Remove(item);
             await _context.SaveChangesAsync();
         }
 
-        public async Task EditAsync(T item)
+        public async Task EditarEntidade(T item)
         {
             _context.Set<T>().Update(item);
             await _context.SaveChangesAsync();
